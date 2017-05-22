@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdToolbarModule } from '@angular/material';
+import { MdButtonModule, MdToolbarModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import 'hammerjs';
 import { AppRoutingModule } from './app.routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { WelcomeComponent } from './welcome/welcome.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +21,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     MdToolbarModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MdButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
