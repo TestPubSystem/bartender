@@ -2,7 +2,7 @@
     <div fxLayout="column" fxFlex="150pt">
         <md-list *ngIf="tests">
             <md-list-item *ngFor="let test of tests;">
-                {{test.id}}
+                {{test.last_revision.title}}
             </md-list-item>
         </md-list>
     </div>
