@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  host: 'http://tishka17.pythonanywhere.com'
+  host: 'https://tishka17.pythonanywhere.com'
 };
