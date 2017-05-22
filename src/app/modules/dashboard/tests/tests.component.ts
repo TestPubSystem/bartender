@@ -13,16 +13,16 @@ export class TestsComponent implements OnInit, OnDestroy {
   public tests: Test[];
 
   constructor(private testsService: TestsService) {
-    this.testsService.preload();
+  }
+
+  ngOnInit() {
+    this.testsService.all(true);
 
     this.subscription.add(this.testsService.all().subscribe(
       tests => {
         this.tests = tests;
       }
     ));
-  }
-
-  ngOnInit() {
   }
 
   ngOnDestroy() {
