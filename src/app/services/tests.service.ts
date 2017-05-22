@@ -23,7 +23,7 @@ export class TestsService {
   }
 
   public preload(): void {
-    this.http.get(this.host + '/api/v1/tests')
+    this.http.get(this.host + '/api/v1/tests/')
       .subscribe((response: Response) => {
         this.setTests(response.json().data);
       }, error => {
