@@ -1,3 +1,14 @@
-<p *ngIf="test">
-  {{test.last_revision.title}} works!
-</p>
+<div *ngIf="test">
+    <div fxLayout="row">
+        <md-toolbar>
+            <span>{{test.last_revision.title}}</span>
+            <span class="fill-remaining-space"></span>
+            <md-icon>actions</md-icon>
+        </md-toolbar>
+    </div>
+    <div fxLayout="row">
+        <div fxLayout="column" fxFlex="50%">{{test.last_revision.pre_condition}}</div>
+        <div fxLayout="column" fxFlex="50%">{{test.last_revision.post_condition}}</div>
+    </div>
+    <md-card fxLayout="row" *ngFor="let step of test.last_revision.steps">{{step.text}}</md-card>
+</div>
