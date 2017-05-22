@@ -1,12 +1,13 @@
-<div fxLayout="row">
-    <div fxLayout="column" fxFlex="150pt">
-        <md-list *ngIf="tests">
-            <md-list-item *ngFor="let test of tests;">
-                <a [routerLink]="['test', test.id]">{{test.last_revision.title}}</a>
-            </md-list-item>
-        </md-list>
-    </div>
-    <div fxLayout="column" fxFlex="100%">
-        <router-outlet></router-outlet>
-    </div>
+<div fxLayout="column" fxFlex="200pt">
+    <md-nav-list>
+        <md-list-item *ngFor="let test of tests" [routerLink]="['test', test.id]" title="{{test.last_revision.desc}}">
+            <h3 md-line>{{test.last_revision.title}}</h3>
+            <p md-line>
+                <span class="mat-app-background">{{test.last_revision.desc}}</span>
+            </p>
+        </md-list-item>
+    </md-nav-list>
+</div>
+<div fxLayout="column" fxFlex="100%">
+    <router-outlet></router-outlet>
 </div>
