@@ -5,6 +5,7 @@ import { TestsComponent } from './tests/tests.component';
 import { MdListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TestsService } from '../../services/tests.service';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { TestsService } from '../../services/tests.service';
     MdListModule,
     FlexLayoutModule
   ],
-  declarations: [TestsComponent],
+  declarations: [TestsComponent, TestComponent],
   providers: [TestsService]
 })
 export class DashboardModule {

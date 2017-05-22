@@ -22,6 +22,12 @@ export class TestsService {
     return this.tests.asObservable();
   }
 
+  public get(id: number): Test {
+    return this.tests.getValue().filter(test => {
+      return test.id === id;
+    })[0];
+  }
+
   public preload(): void {
     this.http.get(this.host + '/api/v1/tests/')
       .subscribe((response: Response) => {
