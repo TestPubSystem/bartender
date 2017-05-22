@@ -4,11 +4,11 @@ import { Subscription } from 'rxjs/Subscription';
 import { Test } from '../../../models/test';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-tests',
+  templateUrl: './tests.component.html',
+  styleUrls: ['./tests.component.css'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class TestsComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   public tests: Test[];
 
