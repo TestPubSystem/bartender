@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<div fxLayout="column">
+    <header>
+        <md-toolbar md-scroll-shrink color="primary">
+            <div fxLayout="row">
+                Bartender
+            </div>
+        </md-toolbar>
+    </header>
+
+    <main flex>
+        <div ui-view>
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+
+    <footer>
+        <div fxLayout="row">
+            &copy; 2017
+        </div>
+    </footer>
+</div>
