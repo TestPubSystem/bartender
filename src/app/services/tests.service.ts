@@ -27,7 +27,6 @@ export class TestsService {
             tests.push(Object.assign({}, test));
           });
           this.tests.next(tests);
-          return this.tests.asObservable();
         }, error => {
           // TODO: error
         });
@@ -43,7 +42,6 @@ export class TestsService {
         .subscribe((response: Response) => {
           const test: Test = Object.assign({}, response.json().data);
           this.test.next(test);
-          return this.test.asObservable();
         }, error => {
           // TODO: error
         });
