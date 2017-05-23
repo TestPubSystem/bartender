@@ -15,7 +15,7 @@
     <md-list-item *ngFor="let test of tests" [routerLink]="['test', test.id]" title="{{test.last_revision.desc}}">
         <h3 md-line>{{test.last_revision.title}}</h3>
         <p md-line>
-            <span class="mat-app-background">{{test.last_revision.desc}}</span>
+            <span>{{test.last_revision.desc}}</span>
         </p>
     </md-list-item>
 </md-nav-list>
