@@ -18,9 +18,13 @@
             </md-menu>
         </md-toolbar>
     </div>
-    <div fxLayout="row">
-        <div fxLayout="column" fxFlex="50%">{{test.last_revision.pre_condition}}</div>
-        <div fxLayout="column" fxFlex="50%">{{test.last_revision.post_condition}}</div>
-    </div>
+    <md-tab-group>
+        <md-tab label="Pre condition">
+            <p>{{test.last_revision.pre_condition}}</p>
+        </md-tab>
+        <md-tab label="Post condition">
+            <p>{{test.last_revision.post_condition}}</p>
+        </md-tab>
+    </md-tab-group>
     <md-card fxLayout="row" *ngFor="let step of test.last_revision.steps">{{step.text}}</md-card>
 </div>

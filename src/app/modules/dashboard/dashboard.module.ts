@@ -3,8 +3,13 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { TestsComponent } from './tests/tests.component';
 import {
-  MdCardModule, MdButton, MdListModule, MdToolbarModule, MdButtonModule, MdIconModule,
-  MdMenu, MdMenuModule
+  MdButtonModule,
+  MdCardModule,
+  MdIconModule,
+  MdListModule,
+  MdMenuModule,
+  MdTabsModule,
+  MdToolbarModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TestsService } from '../../services/tests.service';
@@ -20,7 +25,8 @@ import { TestComponent } from './test/test.component';
     MdCardModule,
     MdButtonModule,
     MdIconModule,
-    MdMenuModule
+    MdMenuModule,
+    MdTabsModule
   ],
   declarations: [TestsComponent, TestComponent],
   providers: [TestsService]
