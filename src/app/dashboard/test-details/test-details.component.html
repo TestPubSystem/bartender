@@ -1,0 +1,24 @@
+<div *ngIf="test">
+  <div fxLayout="row">
+    <md-toolbar>
+      <span>{{test.last_revision.title}}</span>
+      <span class="fill-remaining-space"></span>
+      <button md-icon-button [mdMenuTriggerFor]="testMenu">
+        <md-icon>more_vert</md-icon>
+      </button>
+      <md-menu #testMenu="mdMenu">
+        <button md-menu-item>
+          <md-icon>edit</md-icon>
+          <span>edit</span>
+        </button>
+        <button md-menu-item>
+          <md-icon>remove</md-icon>
+          <span>remove</span>
+        </button>
+      </md-menu>
+    </md-toolbar>
+  </div>
+  <md-card fxLayout="row">{{test.last_revision.pre_condition}}</md-card>
+  <md-card fxLayout="row" *ngFor="let step of test.last_revision.steps">{{step.text}}</md-card>
+  <md-card fxLayout="row">{{test.last_revision.post_condition}}</md-card>
+</div>

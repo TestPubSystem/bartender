@@ -12,8 +12,9 @@ import {
   MdToolbarModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { TestsService } from '../../services/tests.service';
-import { TestComponent } from './test/test.component';
+import { TestsService } from './shared/tests.service';
+import { DashboardComponent } from './dashboard.component';
+import { TestDetailsComponent } from './test-details/test-details.component';
 
 @NgModule({
   imports: [
@@ -25,10 +26,9 @@ import { TestComponent } from './test/test.component';
     MdCardModule,
     MdButtonModule,
     MdIconModule,
-    MdMenuModule,
-    MdTabsModule
+    MdMenuModule
   ],
-  declarations: [TestsComponent, TestComponent],
+  declarations: [TestsComponent, TestDetailsComponent, DashboardComponent],
   providers: [TestsService]
 })
 export class DashboardModule {

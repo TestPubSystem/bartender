@@ -13,14 +13,13 @@
             </md-toolbar-row>
         </md-toolbar>
     </md-sidenav>
-    <header>
-        <md-toolbar color="primary">
-            <button md-button (click)="sidenav.toggle()">
-                <md-icon>menu</md-icon>
-            </button>
-            <span>Bartender</span>
-        </md-toolbar>
-    </header>
+    <md-toolbar color="primary">
+        <button md-button (click)="sidenav.toggle()">
+            <md-icon>menu</md-icon>
+        </button>
+        <span>Bartender</span>
+    </md-toolbar>
+
     <main flex>
         <router-outlet></router-outlet>
     </main>

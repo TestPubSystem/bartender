@@ -1,15 +1,16 @@
 import { Component, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Test } from '../../../models/test';
-import { TestsService } from '../../../services/tests.service';
+import { Test } from '../shared/test.model';
 import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRoute } from '@angular/router';
+import { TestsService } from '../shared/tests.service';
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  selector: 'app-test-details',
+  templateUrl: './test-details.component.html',
+  styleUrls: ['./test-details.component.css']
 })
-export class TestComponent implements OnDestroy {
+export class TestDetailsComponent implements OnDestroy {
+
   public test: Test;
   private subscription: Subscription = new Subscription();
 

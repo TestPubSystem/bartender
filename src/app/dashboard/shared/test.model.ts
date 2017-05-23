@@ -1,4 +1,4 @@
-import { Revision } from './revision';
+import { Revision } from './revision.model';
 export interface Test {
   creation_date: string;
   id: number;

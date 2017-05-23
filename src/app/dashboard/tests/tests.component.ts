@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
-import { TestsService } from '../../../services/tests.service';
+import { TestsService } from '../shared/tests.service';
 import { Subscription } from 'rxjs/Subscription';
-import { Test } from '../../../models/test';
+import { Test } from '../shared/test.model';
 
 @Component({
   selector: 'app-tests',

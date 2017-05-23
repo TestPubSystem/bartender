@@ -5,14 +5,14 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdIconModule, MdSidenavModule, MdToolbarModule } from '@angular/material';
 import { AppComponent } from './app.component';
-import 'hammerjs';
 import { AppRoutingModule } from './app.routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { WelcomeComponent } from './welcome/welcome.component';
+import 'hammerjs';
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,

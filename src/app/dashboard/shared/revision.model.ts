@@ -1,4 +1,4 @@
-import { Step } from './step';
+import { Step } from './step.model';
 export interface Revision {
   creation_date: string;
   desc: string;
