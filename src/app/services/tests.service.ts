@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { environment } from '../../environments/environment';
 import { Test } from '../models/test';
 import { Observable } from 'rxjs/Observable';
@@ -20,7 +19,6 @@ export class TestsService {
   public all(resync = false): Observable<Test[]> {
     if (resync) {
       this.http.get(this.host + '/api/v1/tests/')
-        .first()
         .subscribe((response: Response) => {
           const tests: Test[] = [];
           response.json().data.forEach(test => {
@@ -38,7 +36,6 @@ export class TestsService {
   public get(id: number, resync = false): Observable<Test> {
     if (resync) {
       this.http.get(this.host + '/api/v1/tests/' + id)
-        .first()
         .subscribe((response: Response) => {
           const test: Test = Object.assign({}, response.json().data);
           this.test.next(test);
