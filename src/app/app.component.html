@@ -1,12 +1,26 @@
-<div fxLayout="column">
+<md-sidenav-container fullscreen>
+    <md-sidenav #sidenav mode="side">
+        <md-toolbar>
+            <span>Menu</span>
+            <md-toolbar-row>
+                <a [routerLink]="['dashboard']"><span>Dashboard</span></a>
+            </md-toolbar-row>
+            <md-toolbar-row>
+                <span>Profile</span>
+            </md-toolbar-row>
+            <md-toolbar-row>
+                <span>Logout</span>
+            </md-toolbar-row>
+        </md-toolbar>
+    </md-sidenav>
     <header>
-        <md-toolbar md-scroll-shrink color="primary">
-            <div fxLayout="row">
-                <a [routerLink]="['/']">Bartender</a>
-            </div>
+        <md-toolbar color="primary">
+            <button md-button (click)="sidenav.toggle()">
+                <md-icon>menu</md-icon>
+            </button>
+            <span>Bartender</span>
         </md-toolbar>
     </header>
-
     <main flex>
         <router-outlet></router-outlet>
     </main>
@@ -16,4 +30,4 @@
             &copy; 2017
         </div>
     </footer>
-</div>
+</md-sidenav-container>

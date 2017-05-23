@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdToolbarModule } from '@angular/material';
+import { MdButtonModule, MdIconModule, MdSidenavModule, MdToolbarModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import 'hammerjs';
 import { AppRoutingModule } from './app.routing.module';
@@ -22,7 +22,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MdToolbarModule,
     AppRoutingModule,
     FlexLayoutModule,
-    MdButtonModule
+    MdButtonModule,
+    MdIconModule,
+    MdSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
