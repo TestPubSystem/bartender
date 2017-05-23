@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { TestsComponent } from './tests/tests.component';
-import { MdCardModule, MdListModule, MdToolbarModule } from '@angular/material';
+import {
+  MdCardModule, MdButton, MdListModule, MdToolbarModule, MdButtonModule, MdIconModule,
+  MdMenu, MdMenuModule
+} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TestsService } from '../../services/tests.service';
 import { TestComponent } from './test/test.component';
@@ -14,7 +17,11 @@ import { TestComponent } from './test/test.component';
     MdListModule,
     FlexLayoutModule,
     MdToolbarModule,
-    MdCardModule],
+    MdCardModule,
+    MdButtonModule,
+    MdIconModule,
+    MdMenuModule
+  ],
   declarations: [TestsComponent, TestComponent],
   providers: [TestsService]
 })
