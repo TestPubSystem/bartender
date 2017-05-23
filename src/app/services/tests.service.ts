@@ -6,19 +6,21 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { environment } from '../../environments/environment';
 import { Test } from '../models/test';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class TestsService {
-  private tests: BehaviorSubject<Test[]> = new BehaviorSubject(null);
-  private test: BehaviorSubject<Test> = new BehaviorSubject(null);
+  private tests: Subject<Test[]> = new Subject();
+  private test: Subject<Test> = new Subject();
   private host: string = environment.host;
 
   constructor(private http: Http) {
   }
 
   public all(resync = false): Observable<Test[]> {
-    if (resync || this.tests.getValue() === null) {
+    if (resync) {
       this.http.get(this.host + '/api/v1/tests/')
+        .first()
         .subscribe((response: Response) => {
           const tests: Test[] = [];
           response.json().data.forEach(test => {
@@ -35,8 +37,9 @@ export class TestsService {
   }
 
   public get(id: number, resync = false): Observable<Test> {
-    if (resync || this.test.getValue() === null) {
+    if (resync) {
       this.http.get(this.host + '/api/v1/tests/' + id)
+        .first()
         .subscribe((response: Response) => {
           const test: Test = Object.assign({}, response.json().data);
           this.test.next(test);

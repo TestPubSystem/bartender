@@ -14,8 +14,7 @@ import { TestComponent } from './test/test.component';
     MdListModule,
     FlexLayoutModule,
     MdToolbarModule,
-    MdCardModule
-  ],
+    MdCardModule],
   declarations: [TestsComponent, TestComponent],
   providers: [TestsService]
 })
