@@ -1,6 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { ITag } from '../../shared/tag.model';
+import { ITest } from '../../shared/test.model';
 
 @Injectable()
 export class TagForm {
@@ -9,16 +9,14 @@ export class TagForm {
   constructor(private fb: FormBuilder) {
   }
 
-  public create(tag: ITag): FormGroup {
+  public create(test: ITest): FormGroup {
     this.form = this.fb.group({
-      title: [tag.title, Validators.required],
-      color: [tag.color, Validators.required],
+      tag: [],
     });
 
     this.form.valueChanges
-      .subscribe((item: ITag) => {
-        tag.title = item.title;
-        tag.color = item.color;
+      .subscribe(item => {
+        test.tags.push(Object.assign({}, item.tag));
       });
 
     return this.form;

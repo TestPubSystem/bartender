@@ -11,13 +11,18 @@ export class TestForm {
 
   public create(test: ITest): FormGroup {
     this.form = this.fb.group({
-      last_revision: [test.last_revision],
-      tags: [test.tags],
+      title: ['', Validators.required],
+      desc: ['', Validators.required],
+      pre_condition: ['', Validators.required],
+      post_condition: ['', Validators.required],
     });
 
     this.form.valueChanges
-      .subscribe((item: ITest) => {
-
+      .subscribe(item => {
+        test.last_revision.title = item.title;
+        test.last_revision.desc = item.desc;
+        test.last_revision.pre_condition = item.pre_condition;
+        test.last_revision.post_condition = item.post_condition;
       });
 
     return this.form;

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { TestsComponent } from './tests/tests.component';
 import {
+  MdAutocompleteModule,
   MdButtonModule,
   MdCardModule,
   MdChipsModule,
@@ -18,7 +19,6 @@ import { DashboardComponent } from './dashboard.component';
 import { TestDetailsComponent } from './test-details/test-details.component';
 import { TestComponent } from './test/test.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -34,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MdInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MdAutocompleteModule
   ],
   declarations: [TestsComponent, TestDetailsComponent, DashboardComponent, TestComponent],
   providers: [TestsService]

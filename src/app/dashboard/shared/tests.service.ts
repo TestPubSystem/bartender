@@ -21,7 +21,7 @@ export class TestsService {
       this.http.get(this.host + '/api/v1/tests/')
         .subscribe((response: Response) => {
           const tests: Test[] = [];
-          response.json().data.forEach(test => {
+          response.json().data.forEach((test: Test) => {
             tests.push(Object.assign({}, test));
           });
           this.tests.next(tests);

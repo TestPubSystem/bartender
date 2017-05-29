@@ -1,55 +1,56 @@
-<md-card *ngIf="forms.length">
-    <md-card *ngIf="forms.length">
-        <h3>Создание теста</h3>
-        <form *ngIf="forms[0]" [formGroup]="forms[0]" (ngSubmit)="onSubmit()" novalidate>
-            <h3>Создание тега</h3>
-            <form *ngIf="forms[1]" [formGroup]="forms[1]" (ngSubmit)="onTag()" novalidate>
-                <md-input-container>
-                    <input mdInput formControlName="title" placeholder="title">
-                </md-input-container>
-                <br/>
-                <md-input-container>
-                    <input mdInput formControlName="color" placeholder="color">
-                </md-input-container>
-                <button md-button [disabled]="!forms[1].valid">
-                    Add!
-                </button>
-            </form>
-            <h3>Создание ревизии</h3>
-            <form *ngIf="forms[2]" [formGroup]="forms[2]" novalidate>
-                <md-input-container>
-                    <input mdInput formControlName="title" placeholder="title">
-                </md-input-container>
-                <br/>
-                <md-input-container>
-                    <textarea mdInput formControlName="desc" placeholder="description"></textarea>
-                </md-input-container>
-                <br/>
-                <md-input-container>
-                    <textarea mdInput formControlName="pre_condition" placeholder="pre condition"></textarea>
-                </md-input-container>
-                <br/>
-                <md-input-container>
-                    <textarea mdInput formControlName="post_condition" placeholder="post condition"></textarea>
-                </md-input-container>
-            </form>
-            <h3>Создание шага</h3>
-            <form *ngIf="forms[3]" [formGroup]="forms[3]" (ngSubmit)="onStep()" novalidate>
-                <md-input-container>
-                    <input mdInput formControlName="order_number" placeholder="order number">
-                </md-input-container>
-                <br/>
-                <md-input-container>
-                    <textarea mdInput formControlName="text" placeholder="text"></textarea>
-                </md-input-container>
-                <button md-button [disabled]="!forms[3].valid">
-                    Add!
-                </button>
-            </form>
-            <button md-button [disabled]="!forms[2].valid || !revision.steps.length || !test.tags.length">
-                Submit!
-            </button>
+<md-card>
+    <h3>Создание теста</h3>
+    <form [formGroup]="testFormGroup" (ngSubmit)="onSubmit()">
+        <md-input-container>
+            <input mdInput formControlName="title" placeholder="title">
+        </md-input-container>
+        <md-input-container>
+            <textarea mdInput formControlName="desc" placeholder="description"></textarea>
+        </md-input-container>
+        <br/>
+        <md-input-container>
+            <textarea mdInput formControlName="pre_condition" placeholder="pre condition"></textarea>
+        </md-input-container>
+        <md-input-container>
+            <textarea mdInput formControlName="post_condition" placeholder="post condition"></textarea>
+        </md-input-container>
+        <form [formGroup]="tagFormGroup">
+            <md-chip-list>
+                <md-chip *ngFor="let tag of test.tags let i = index;">
+                    {{tag.title}}
+                    <button md-button (click)="dropTag(i)">
+                        <md-icon>close</md-icon>
+                    </button>
+                </md-chip>
+            </md-chip-list>
+            <md-input-container>
+                <input type="text" formControlName="tag" placeholder="Tags" mdInput [mdAutocomplete]="tagsList">
+            </md-input-container>
+
+            <md-autocomplete #tagsList="mdAutocomplete" [displayWith]="tagsListValue">
+                <md-option *ngFor="let tag of tags" [value]="tag">
+                    {{tag.title}}
+                </md-option>
+                <md-option>Создать новый</md-option>
+            </md-autocomplete>
         </form>
-    </md-card>
+        <div *ngFor="let step of test.last_revision.steps let i = index;">
+            <md-input-container>
+                <input mdInput value="{{step.text}}" disabled/>
+                <button md-button (click)="dropStep(i)">
+                    <md-icon>close</md-icon>
+                </button>
+            </md-input-container>
+        </div>
+        <form [formGroup]="stepFormGroup" (ngSubmit)="onStep()">
+            <md-input-container>
+                <input mdInput formControlName="text" placeholder="Step Text"/>
+            </md-input-container>
+        </form>
+        <button md-button
+                [disabled]="!testFormGroup.valid || !test.last_revision.steps.length || !test.tags.length">
+            Submit!
+        </button>
+    </form>
     {{test|json}}
 </md-card>
