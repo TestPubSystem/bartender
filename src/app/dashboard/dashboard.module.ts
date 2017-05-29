@@ -5,16 +5,19 @@ import { TestsComponent } from './tests/tests.component';
 import {
   MdButtonModule,
   MdCardModule,
+  MdChipsModule,
   MdIconModule,
+  MdInputModule,
   MdListModule,
   MdMenuModule,
-  MdToolbarModule,
-  MdChipsModule
+  MdToolbarModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TestsService } from './shared/tests.service';
 import { DashboardComponent } from './dashboard.component';
 import { TestDetailsComponent } from './test-details/test-details.component';
+import { TestComponent } from './test/test.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -27,9 +30,12 @@ import { TestDetailsComponent } from './test-details/test-details.component';
     MdButtonModule,
     MdIconModule,
     MdMenuModule,
-    MdChipsModule
+    MdChipsModule,
+    MdInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  declarations: [TestsComponent, TestDetailsComponent, DashboardComponent],
+  declarations: [TestsComponent, TestDetailsComponent, DashboardComponent, TestComponent],
   providers: [TestsService]
 })
 export class DashboardModule {

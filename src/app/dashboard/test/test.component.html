@@ -1,0 +1,55 @@
+<md-card *ngIf="forms.length">
+    <md-card *ngIf="forms.length">
+        <h3>Создание теста</h3>
+        <form *ngIf="forms[0]" [formGroup]="forms[0]" (ngSubmit)="onSubmit()" novalidate>
+            <h3>Создание тега</h3>
+            <form *ngIf="forms[1]" [formGroup]="forms[1]" (ngSubmit)="onTag()" novalidate>
+                <md-input-container>
+                    <input mdInput formControlName="title" placeholder="title">
+                </md-input-container>
+                <br/>
+                <md-input-container>
+                    <input mdInput formControlName="color" placeholder="color">
+                </md-input-container>
+                <button md-button [disabled]="!forms[1].valid">
+                    Add!
+                </button>
+            </form>
+            <h3>Создание ревизии</h3>
+            <form *ngIf="forms[2]" [formGroup]="forms[2]" novalidate>
+                <md-input-container>
+                    <input mdInput formControlName="title" placeholder="title">
+                </md-input-container>
+                <br/>
+                <md-input-container>
+                    <textarea mdInput formControlName="desc" placeholder="description"></textarea>
+                </md-input-container>
+                <br/>
+                <md-input-container>
+                    <textarea mdInput formControlName="pre_condition" placeholder="pre condition"></textarea>
+                </md-input-container>
+                <br/>
+                <md-input-container>
+                    <textarea mdInput formControlName="post_condition" placeholder="post condition"></textarea>
+                </md-input-container>
+            </form>
+            <h3>Создание шага</h3>
+            <form *ngIf="forms[3]" [formGroup]="forms[3]" (ngSubmit)="onStep()" novalidate>
+                <md-input-container>
+                    <input mdInput formControlName="order_number" placeholder="order number">
+                </md-input-container>
+                <br/>
+                <md-input-container>
+                    <textarea mdInput formControlName="text" placeholder="text"></textarea>
+                </md-input-container>
+                <button md-button [disabled]="!forms[3].valid">
+                    Add!
+                </button>
+            </form>
+            <button md-button [disabled]="!forms[2].valid || !revision.steps.length || !test.tags.length">
+                Submit!
+            </button>
+        </form>
+    </md-card>
+    {{test|json}}
+</md-card>
