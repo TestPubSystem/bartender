@@ -8,8 +8,8 @@ import {
   MdIconModule,
   MdListModule,
   MdMenuModule,
-  MdTabsModule,
-  MdToolbarModule
+  MdToolbarModule,
+  MdChipsModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TestsService } from './shared/tests.service';
@@ -26,7 +26,8 @@ import { TestDetailsComponent } from './test-details/test-details.component';
     MdCardModule,
     MdButtonModule,
     MdIconModule,
-    MdMenuModule
+    MdMenuModule,
+    MdChipsModule
   ],
   declarations: [TestsComponent, TestDetailsComponent, DashboardComponent],
   providers: [TestsService]

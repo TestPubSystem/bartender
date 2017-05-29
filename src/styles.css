@@ -1,3 +1,9 @@
+@import 'app-theme.css';
 .fill-remaining-space {
     flex: 1 1 auto;
+}
+.md-headline {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
 }

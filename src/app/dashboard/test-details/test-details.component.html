@@ -1,51 +1,34 @@
-<div *ngIf="test">
-    <div fxLayout="row">
-        <md-toolbar>
-            <span>{{test.last_revision.title}}</span>
-            <span class="fill-remaining-space"></span>
-            <button md-icon-button [mdMenuTriggerFor]="testMenu">
-                <md-icon>more_vert</md-icon>
-            </button>
-            <md-menu #testMenu="mdMenu">
-                <button md-menu-item>
-                    <md-icon>edit</md-icon>
-                    <span>edit</span>
-                </button>
-                <button md-menu-item>
-                    <md-icon>remove</md-icon>
-                    <span>remove</span>
-                </button>
-            </md-menu>
-        </md-toolbar>
+<div *ngIf="test" flex layout="column" layout-padding>
+    <div flex>
+        <md-card>
+            <md-card-header>
+                <md-card-title>
+                    <span>{{test.last_revision.title}}</span>
+                </md-card-title>
+                <md-card-subtitle>
+                    <span>{{test.last_revision.desc}}</span>
+                </md-card-subtitle>
+            </md-card-header>
+            <md-card-content>
+                <md-card-actions>
+                    <md-chip-list *ngFor="let tag of test.tags">
+                        <md-chip [style.background]="'#'+tag.color">{{tag.title}}</md-chip>
+                    </md-chip-list>
+                </md-card-actions>
+                <md-card-subtitle>Предусловие</md-card-subtitle>
+                <p layout-padding>{{test.last_revision.pre_condition}}</p>
+                <md-card-subtitle>Шаги</md-card-subtitle>
+                <md-list layout-padding>
+                    <md-list-item *ngFor="let step of test.last_revision.steps" class="md-line" ng-click="null">
+                        <img/>
+                        <div layout="column">
+                            {{step.text}}
+                        </div>
+                    </md-list-item>
+                </md-list>
+                <md-card-subtitle>Постусловие</md-card-subtitle>
+                <p layout-padding>{{test.last_revision.post_condition}}</p>
+            </md-card-content>
+        </md-card>
     </div>
-    <md-list>
-        <md-list-item>
-            <div md-line>
-                <md-card>
-                    <md-card-content>
-                        <p>{{test.last_revision.pre_condition}}</p>
-                    </md-card-content>
-                </md-card>
-            </div>
-        </md-list-item>
-        <md-list-item *ngFor="let step of test.last_revision.steps">
-            <div md-line>
-                <md-card>
-                    <md-card-content>
-                        <p>{{step.text}}</p>
-                    </md-card-content>
-                </md-card>
-            </div>
-        </md-list-item>
-        <md-list-item>
-            <div md-line>
-                <md-card>
-                    <md-card-content>
-                        <p>{{test.last_revision.post_condition}}</p>
-                    </md-card-content>
-                </md-card>
-            </div>
-        </md-list-item>
-    </md-list>
 </div>
-
