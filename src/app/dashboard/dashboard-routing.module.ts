@@ -7,7 +7,7 @@ import { TestComponent } from './test/test.component';
 const routes: Routes = [{
   path: '', component: DashboardComponent,
   children: [
-    {path: 'test/create', component: TestComponent},
+    {path: 'test', component: TestComponent},
     {path: 'test/:id', component: TestDetailsComponent}
   ]
 }];

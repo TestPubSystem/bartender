@@ -14,11 +14,6 @@ export class TagForm {
       tag: [],
     });
 
-    this.form.valueChanges
-      .subscribe(item => {
-        test.tags.push(Object.assign({}, item.tag));
-      });
-
     return this.form;
   }
 }

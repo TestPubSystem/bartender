@@ -4,6 +4,7 @@
         <md-input-container>
             <input mdInput formControlName="title" placeholder="title">
         </md-input-container>
+        <br/>
         <md-input-container>
             <textarea mdInput formControlName="desc" placeholder="description"></textarea>
         </md-input-container>
@@ -11,33 +12,30 @@
         <md-input-container>
             <textarea mdInput formControlName="pre_condition" placeholder="pre condition"></textarea>
         </md-input-container>
+        <br/>
         <md-input-container>
             <textarea mdInput formControlName="post_condition" placeholder="post condition"></textarea>
         </md-input-container>
         <form [formGroup]="tagFormGroup">
             <md-chip-list>
-                <md-chip *ngFor="let tag of test.tags let i = index;">
+                <md-chip color="primary" selected="true" *ngFor="let tag of test.tags let i = index;">
                     {{tag.title}}
-                    <button md-button (click)="dropTag(i)">
-                        <md-icon>close</md-icon>
-                    </button>
+                    <md-icon (click)="onDropTag(i)">close</md-icon>
                 </md-chip>
+                <md-input-container>
+                    <input type="text" placeholder="Tags" mdInput [mdAutocomplete]="tagsList">
+                </md-input-container>
             </md-chip-list>
-            <md-input-container>
-                <input type="text" formControlName="tag" placeholder="Tags" mdInput [mdAutocomplete]="tagsList">
-            </md-input-container>
-
             <md-autocomplete #tagsList="mdAutocomplete" [displayWith]="tagsListValue">
-                <md-option *ngFor="let tag of tags" [value]="tag">
+                <md-option (click)="onTag(tag)" *ngFor="let tag of tags" [value]="tag">
                     {{tag.title}}
                 </md-option>
-                <md-option>Создать новый</md-option>
             </md-autocomplete>
         </form>
         <div *ngFor="let step of test.last_revision.steps let i = index;">
             <md-input-container>
                 <input mdInput value="{{step.text}}" disabled/>
-                <button md-button (click)="dropStep(i)">
+                <button md-button (click)="onDropStep(i)">
                     <md-icon>close</md-icon>
                 </button>
             </md-input-container>
@@ -49,8 +47,7 @@
         </form>
         <button md-button
                 [disabled]="!testFormGroup.valid || !test.last_revision.steps.length || !test.tags.length">
-            Submit!
+            Create!
         </button>
     </form>
-    {{test|json}}
 </md-card>

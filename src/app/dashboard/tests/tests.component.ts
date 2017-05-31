@@ -23,5 +23,4 @@ export class TestsComponent implements OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }

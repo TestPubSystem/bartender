@@ -8,6 +8,7 @@ import { Revision } from '../shared/revision.model';
 import { TagForm } from './shared/tag.form';
 import { StepForm } from './shared/step.form';
 import { IStep, Step } from '../shared/step.model';
+import { TestsService } from '../shared/tests.service';
 
 @Component({
   selector: 'app-test',
@@ -26,7 +27,8 @@ export class TestComponent implements OnInit {
   constructor(private testForm: TestForm,
               private tagsService: TagsService,
               private tagForm: TagForm,
-              private stepForm: StepForm) {
+              private stepForm: StepForm,
+              private testsService: TestsService) {
 
     this.tagsService.all(true).subscribe(
       (tags: Tag[]) => {
@@ -43,13 +45,18 @@ export class TestComponent implements OnInit {
   }
 
   public onSubmit() {
+    this.testsService.create(this.test).subscribe(
+      test => {
+        this.testsService.all(true);
+      }
+    );
   }
 
   public tagsListValue(tag: Tag): string {
     return tag ? tag.title : '';
   }
 
-  public dropTag(index) {
+  public onDropTag(index) {
     this.test.tags = this.test.tags.filter((item: Tag, i) => {
       if (index !== i) {
         return item;
@@ -57,7 +64,7 @@ export class TestComponent implements OnInit {
     });
   }
 
-  public dropStep(index) {
+  public onDropStep(index) {
     this.test.last_revision.steps = this.test.last_revision.steps.filter((item: Step, i) => {
       if (index !== i) {
         return item;
@@ -68,5 +75,9 @@ export class TestComponent implements OnInit {
   public onStep() {
     this.test.last_revision.steps.push(Object.assign({}, this.step));
     this.stepFormGroup.reset();
+  }
+
+  public onTag(tag: Tag) {
+    this.test.tags.push(Object.assign({}, tag));
   }
 }

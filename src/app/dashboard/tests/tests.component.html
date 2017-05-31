@@ -5,9 +5,9 @@
         <md-icon>more_vert</md-icon>
     </button>
     <md-menu #testsMenu="mdMenu">
-        <button md-menu-item>
+        <button md-menu-item [routerLink]="['test']">
             <md-icon>add</md-icon>
-            <span [routerLink]="['test', 'create']">Add test</span>
+            <span>Add test</span>
         </button>
     </md-menu>
 </md-toolbar>

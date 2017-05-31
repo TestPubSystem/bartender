@@ -46,5 +46,12 @@ export class TestsService {
 
     return this.test.asObservable();
   }
+
+  public create(test: Test): Observable<Test> {
+    return this.http.post(this.host + '/api/v1/tests/', test)
+      .map((response: Response) => {
+        return Object.assign({}, response.json().data);
+      });
+  }
 }
 

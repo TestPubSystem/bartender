@@ -13,11 +13,13 @@ export class StepForm {
   public create(step: IStep): FormGroup {
     this.form = this.fb.group({
       text: [],
+      order_number: []
     });
 
     this.form.valueChanges
       .subscribe(item => {
         step.text = item.text;
+        step.order_number = item.order_number;
       });
 
     return this.form;
