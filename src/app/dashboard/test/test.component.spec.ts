@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TestComponent } from './test.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MdAutocompleteModule, MdChipsModule, MdIconModule, MdInputModule } from '@angular/material';
+import { TestsService } from '../shared/tests.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('TestComponent', () => {
   let component: TestComponent;
@@ -8,9 +12,11 @@ describe('TestComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestComponent ]
+      imports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, MdInputModule, MdIconModule, MdAutocompleteModule, MdChipsModule],
+      declarations: [TestComponent],
+      providers: [TestsService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
