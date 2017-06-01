@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MdAutocompleteModule, MdChipsModule, MdIconModule, MdInputModule } from '@angular/material';
 import { TestsService } from '../shared/tests.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MockTestsService } from '../shared/mockTests.service';
 
 describe('TestComponent', () => {
   let component: TestComponent;
@@ -12,9 +13,21 @@ describe('TestComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, MdInputModule, MdIconModule, MdAutocompleteModule, MdChipsModule],
+      imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MdInputModule,
+        MdIconModule,
+        MdAutocompleteModule,
+        MdChipsModule],
       declarations: [TestComponent],
-      providers: [TestsService]
+      providers: [
+        {
+          provide: TestsService,
+          useValue: new MockTestsService()
+        }
+      ]
     })
       .compileComponents();
   }));
