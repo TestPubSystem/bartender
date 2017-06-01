@@ -34,7 +34,7 @@
         </form>
         <div *ngFor="let step of test.last_revision.steps let i = index;">
             <md-input-container>
-                <input mdInput value="{{step.text}}" disabled/>
+                <input mdInput [value]="step.text" (input)="step.text = $event.target.value"/>
                 <button md-button (click)="onDropStep(i)">
                     <md-icon>close</md-icon>
                 </button>
