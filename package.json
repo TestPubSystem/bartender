@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
+    "lint": "./node_modules/@angular/cli/bin/ng lint",
     "postinstall": "./node_modules/@angular/cli/bin/ng build --aot -prod"
   },
   "private": true,

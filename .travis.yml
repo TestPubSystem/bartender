@@ -18,6 +18,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
+- npm run lint
 - npm install -g karma
 - ng build -prod -aot
 
