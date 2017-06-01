@@ -6,6 +6,7 @@ import { MdAutocompleteModule, MdChipsModule, MdIconModule, MdInputModule } from
 import { TestsService } from '../shared/tests.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MockTestsService } from '../shared/mockTests.service';
+import { HttpModule } from '@angular/http';
 
 describe('TestComponent', () => {
   let component: TestComponent;
@@ -15,6 +16,7 @@ describe('TestComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
+        HttpModule,
         FormsModule,
         ReactiveFormsModule,
         MdInputModule,
