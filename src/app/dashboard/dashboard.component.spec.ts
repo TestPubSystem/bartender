@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
+import { TestsComponent } from './tests/tests.component';
+import { MdMenuModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
+import { TestsService } from './shared/tests.service';
+import { MockTestsService } from './shared/mockTests.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,14 +14,25 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      imports: [MdMenuModule, RouterModule, RouterTestingModule],
+      declarations: [TestsComponent, DashboardComponent],
+      providers: [
+        {
+          provide: TestsService,
+          useValue: new MockTestsService()
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
