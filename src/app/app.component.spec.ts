@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { MdToolbarModule } from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AuthorizationService } from './dashboard/shared/authorization.service';
+import { HttpModule } from '@angular/http';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -11,10 +13,11 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterModule, MdToolbarModule, RouterModule, RouterTestingModule],
+      imports: [RouterModule, MdToolbarModule, RouterModule, RouterTestingModule, HttpModule],
       declarations: [
         AppComponent
       ],
+      providers: [AuthorizationService]
     }).compileComponents();
   }));
 
