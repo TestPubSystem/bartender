@@ -1,0 +1,23 @@
+<form class="form" [formGroup]="loginFormGroup" (submit)="onSubmit()">
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td>
+                <md-input-container>
+                    <input mdInput formControlName="login" placeholder="Login">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <md-input-container>
+                    <input mdInput type="password" formControlName="password" placeholder="Password">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button md-button>Вход</button>
+            </td>
+        </tr>
+    </table>
+</form>

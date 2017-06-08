@@ -2,14 +2,17 @@
     <md-sidenav #sidenav mode="side">
         <md-toolbar>
             <span>Menu</span>
-            <md-toolbar-row>
+            <md-toolbar-row *ngIf="!token">
+                <a [routerLink]="['login']"><span>Login</span></a>
+            </md-toolbar-row>
+            <md-toolbar-row *ngIf="token">
                 <a [routerLink]="['dashboard']"><span>Dashboard</span></a>
             </md-toolbar-row>
-            <md-toolbar-row>
+            <md-toolbar-row *ngIf="token">
                 <span>Profile</span>
             </md-toolbar-row>
-            <md-toolbar-row>
-                <span>Logout</span>
+            <md-toolbar-row *ngIf="token">
+                <a (click)="logout()" href="#"><span>Logout</span></a>
             </md-toolbar-row>
         </md-toolbar>
     </md-sidenav>
