@@ -4,12 +4,13 @@ import { DashboardComponent } from './dashboard.component';
 import { TestDetailsComponent } from './test-details/test-details.component';
 import { TestComponent } from './test/test.component';
 import { AuthorizationGuard } from './shared/authorization.guard';
+import { TestsComponent } from './tests/tests.component';
 
 const routes: Routes = [{
   path: '', component: DashboardComponent, canActivate: [AuthorizationGuard],
   children: [
-    {path: 'test', component: TestComponent},
-    {path: 'test/:id', component: TestDetailsComponent}
+    {path: 'project/:id', component: TestsComponent},
+    {path: 'project/:projectId/test/:testId', component: TestDetailsComponent},
   ]
 }];
 

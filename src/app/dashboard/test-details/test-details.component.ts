@@ -17,8 +17,9 @@ export class TestDetailsComponent implements OnDestroy {
   constructor(private route: ActivatedRoute,
               private testsService: TestsService) {
     this.route.params.subscribe(params => {
-      const id: number = +params['id'];
-      this.subscription.add(this.testsService.get(id, true).subscribe(
+      const projectId: number = +params['projectId'];
+      const testId: number = +params['testId'];
+      this.subscription.add(this.testsService.get(testId, true).subscribe(
         test => {
           this.test = test;
         }

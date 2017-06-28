@@ -14,9 +14,9 @@ export class TestsService extends AuthorizationService {
   private test: Subject<Test> = new Subject();
   private host: string = environment.host;
 
-  public all(resync = false): Observable<Test[]> {
+  public all(project: number, resync = false): Observable<Test[]> {
     if (resync) {
-      this.http.get(this.host + '/api/v1/tests/', {headers: this.headers})
+      this.http.get(this.host + '/api/v1/projects/' + project + '/tests/', {headers: this.headers})
         .subscribe((response: Response) => {
           const tests: Test[] = [];
           response.json().data.forEach((test: Test) => {

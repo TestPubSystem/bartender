@@ -47,7 +47,7 @@ export class TestComponent implements OnInit {
   public onSubmit() {
     this.testsService.create(this.test).subscribe(
       test => {
-        this.testsService.all(true);
+        this.testsService.all(1, true);
       }
     );
   }

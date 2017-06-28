@@ -19,6 +19,7 @@ import { DashboardComponent } from './dashboard.component';
 import { TestDetailsComponent } from './test-details/test-details.component';
 import { TestComponent } from './test/test.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProjectsComponent } from './projects/projects.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -36,7 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MdAutocompleteModule
   ],
-  declarations: [TestsComponent, TestDetailsComponent, DashboardComponent, TestComponent],
+  declarations: [TestsComponent, TestDetailsComponent, DashboardComponent, TestComponent, ProjectsComponent],
   providers: [TestsService]
 })
 export class DashboardModule {

@@ -1,0 +1,21 @@
+<md-toolbar>
+  <span>Projects</span>
+  <span class="fill-remaining-space"></span>
+  <button md-icon-button [mdMenuTriggerFor]="prjectsMenu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <md-menu #prjectsMenu="mdMenu">
+    <button md-menu-item [routerLink]="['project']">
+      <md-icon>add</md-icon>
+      <span>Add project</span>
+    </button>
+  </md-menu>
+</md-toolbar>
+<md-nav-list *ngIf="projects">
+  <md-list-item *ngFor="let project of projects" [routerLink]="['project', project.id]" title="{{project.name}}">
+    <h3 md-line>{{project.name}}</h3>
+    <p md-line>
+      <span>{{project.desc}}</span>
+    </p>
+  </md-list-item>
+</md-nav-list>

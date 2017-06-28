@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { TestsService } from './shared/tests.service';
 import { MockTestsService } from './shared/mockTests.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ProjectsComponent } from './projects/projects.component';
+import { HttpModule } from '@angular/http';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -14,8 +16,8 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MdMenuModule, RouterModule, RouterTestingModule],
-      declarations: [TestsComponent, DashboardComponent],
+      imports: [MdMenuModule, RouterModule, RouterTestingModule, HttpModule],
+      declarations: [TestsComponent, DashboardComponent, ProjectsComponent],
       providers: [
         {
           provide: TestsService,
